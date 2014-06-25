@@ -27,17 +27,9 @@ var VanillajsGenerator = yeoman.generators.Base.extend({
 
         var prompts = [{
             type: 'confirm',
-            name: 'bootstrap',
-            message: 'Alright stop - and collaborate with Bootstrap?',
-            default: true
-        }, {
-            type: 'confirm',
             name: 'compassBootstrap',
-            message: 'With the SASS kicked-in?',
-            default: true,
-            when: function(props) {
-                return props.bootstrap;
-            }
+            message: 'Alright stop - and collaborate with Bootstrap for SASS?',
+            default: true
         }, {
             name: 'appName',
             message: 'What\'s the name of this new invention',
@@ -50,7 +42,6 @@ var VanillajsGenerator = yeoman.generators.Base.extend({
 
         this.prompt(prompts, function(props) {
             this.appName = props.appName;
-            this.bootstrap = props.bootstrap;
             this.compassBootstrap = props.compassBootstrap;
 
             done();
@@ -69,6 +60,7 @@ var VanillajsGenerator = yeoman.generators.Base.extend({
 
         this.template('common/index.html', 'app/index.html');
         this.copy('common/scripts/main.js', 'app/scripts/main.js');
+        this.copy('common/styles/main.css', 'app/styles/main.css');
     },
 
     projectfiles: function() {

@@ -15,7 +15,7 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
             path = 'app/index.html',
             file = this.readFileAsString(path),
             slug = this.name.toLowerCase().replace(/ /g, '_'),
-            insert = '<script src="scripts/' + this.name + '.js"></script>';
+            insert = '<script src="scripts/modules/' + this.name + '.js"></script>';
 
         if (file.indexOf(insert) === -1) {
             this.write(path, file.replace(hook, insert + '\n\t\t' + hook));

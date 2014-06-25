@@ -5,27 +5,38 @@
         <title><%= appName %></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <% if (bootstrap && !compassBootstrap) { %><link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"><% } %>
+        <% if (!compassBootstrap) { %><link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"><% } %>
         <% if (compassBootstrap) { %><link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.min.css"><% } %>
-        <script>
-            var BASE_URL = "";
-        </script>
+        <link rel="stylesheet" href="styles/main.css">
     </head>
     <body>
         <div class="container">
             <div class="header">
-                <h3 class="text-muted">Title</h3>
+                <ul class="nav nav-pills pull-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <h3 class="text-muted"><%= appName %></h3>
             </div>
 
-            <div class="row">
-                <div id="content" class="col-lg-6">
-                    <table id="plan-table" class="table"></table>
+            <div class="jumbotron">
+                <h1>Yo VanillaJS</h1>
+                <p class="lead">Kickin' it old school.</p>
+                <p><a class="btn btn-lg btn-success" href="#">Word to your mother</a></p>
+            </div>
+
+            <div class="row marketing">
+                <div class="col-lg-6">
+                    <h4>yo vanillajs:module "modulename"</h4>
+                    <p>Use the vanillajs:module subgenerator to quickly get a new module on the scene, you know what I mean?</p>
                 </div>
             </div>
 
             <div class="footer">
-                <p><a href="tests">Unit Tests</a></p>
+                 <p>&copy; A1A Beachfront Ave.</p>
             </div>
+
         </div>
         <script src="bower_components/jquery/jquery.min.js"></script>
         <script src="scripts/main.js"></script>

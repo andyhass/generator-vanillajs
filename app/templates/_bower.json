@@ -2,7 +2,7 @@
     "name": "<%= _.slugify(appName) %>",
     "version": "0.0.0",
     "dependencies": { <%
-        if (bootstrap && !compassBootstrap) { %>
+        if (!compassBootstrap) { %>
                 "bootstrap": "~3.0.0",
             <%
         } %> <%
