@@ -1,9 +1,4 @@
 'use strict';
-var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
-
-var mountFolder = function(connect, dir) {
-    return connect.static(require('path').resolve(dir));
-};
 
 module.exports = function(grunt) {
     // show elapsed time at the end
@@ -20,23 +15,31 @@ module.exports = function(grunt) {
         yeoman: yeomanConfig,
         watch: {
             options: {
-                nospawn: true
-            }
+                livereload: '<%= connect.options.livereload %>'
+            },
+            files: [
+                '<%= yeoman.app %>/*.html',
+                '<%= yeoman.app %>/styles/{,*/}*.css',
+                '<%= yeoman.app %>/scripts/{,*/}*.js',
+                '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+            ]
         },
         connect: {
             options: {
                 port: 9000,
+                livereload: 35729,
+                // change this to '0.0.0.0' to access the server from outside
                 hostname: 'localhost'
             },
             livereload: {
                 options: {
-                    middleware: function(connect) {
-                        return [
-                            mountFolder(connect, 'app')
-                        ];
-                    }
+                    open: true,
+                    base: [
+                        '<%= yeoman.app %>'
+                    ]
                 }
             }
+
         },
         open: {
             server: {
@@ -48,7 +51,6 @@ module.exports = function(grunt) {
     grunt.registerTask('server', function(target) {
         grunt.task.run([
             'connect:livereload',
-            'open',
             'watch'
         ]);
     });
