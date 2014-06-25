@@ -33,14 +33,23 @@ var VanillajsGenerator = yeoman.generators.Base.extend({
         }, {
             type: 'confirm',
             name: 'compassBootstrap',
-            message: 'Would you like to use the Sass version of Bootstrap?',
+            message: 'With the SASS kicked-in?',
             default: true,
             when: function(props) {
-                return props.bootstrap && compass;
+                return props.bootstrap;
             }
+        }, {
+            name: 'appName',
+            message: 'What\'s the name of this new invention',
+        }, {
+            type: 'list',
+            name: 'willItEverStop',
+            message: 'Will it ever stop?',
+            choices: ["Yes", "No", "Yo, I don't know"]
         }];
 
         this.prompt(prompts, function(props) {
+            this.appName = props.appName;
             this.bootstrap = props.bootstrap;
             this.compassBootstrap = props.compassBootstrap;
 
@@ -52,15 +61,14 @@ var VanillajsGenerator = yeoman.generators.Base.extend({
         this.mkdir('app');
         this.mkdir('app/scripts');
 
-        this.copy('_package.json', 'package.json');
+        this.template('_package.json', 'package.json');
         this.copy('.gitignore', '.gitignore');
         this.copy('.bowerrc', '.bowerrc');
         this.copy('_bower.json', 'bower.json');
         this.copy('_Gruntfile.js', 'Gruntfile.js');
 
-        this.copy('common/index.html', 'app/index.html');
+        this.template('common/index.html', 'app/index.html');
         this.copy('common/scripts/main.js', 'app/scripts/main.js');
-        this.copy('common/scripts/simpleclass.js', 'app/scripts/simpleclass.js');
     },
 
     projectfiles: function() {

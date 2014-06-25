@@ -1,0 +1,6 @@
+var <%= name %> = (function() {
+
+    return {
+
+    };
+});

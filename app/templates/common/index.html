@@ -2,10 +2,11 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title><%= appName %></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.min.css">
+        <% if (bootstrap && !compassBootstrap) { %><link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"><% } %>
+        <% if (compassBootstrap) { %><link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.min.css"><% } %>
         <script>
             var BASE_URL = "";
         </script>
@@ -27,7 +28,6 @@
             </div>
         </div>
         <script src="bower_components/jquery/jquery.min.js"></script>
-        <script src="scripts/simpleclass.js"></script>
         <script src="scripts/main.js"></script>
 </body>
 </html>
