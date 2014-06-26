@@ -1,46 +1,48 @@
 # generator-vanillajs [![Build Status](https://secure.travis-ci.org/stylinandy/generator-vanillajs.png?branch=master)](https://travis-ci.org/stylinandy/generator-vanillajs)
 
-> [Yeoman](http://yeoman.io) generator
+> [Yeoman](http://yeoman.io) generator for a plain, vanilla JavaScript app.
 
+## Usage
 
-## Getting Started
-
-### What is Yeoman?
-
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
-Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
-
-```bash
-$ npm install -g yo
+Install `generator-vanillajs`:
+```
+npm install -g generator-vanillajs
 ```
 
-### Yeoman Generators
+Make a new directory, and `cd` into it:
+```
+mkdir my-new-project && cd $_
+```
+Run `yo vanillajs` and follow the prompts.
 
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
+Run `grunt server` for previewing and `grunt test` for unit testing.
 
-To install generator-vanillajs from npm, run:
 
+## Generators
+
+* [vanillajs:module](#module)
+
+### Module
+Generates a module in `app/scripts/modules`.
+
+Example:
 ```bash
-$ npm install -g generator-vanillajs
+yo vanillajs:module FunkyMusic
 ```
 
-Finally, initiate the generator:
+Produces `app/scripts/modules/FunkyMusic.js`:
 
-```bash
-$ yo vanillajs
-```
+## Bower Components
 
-### Getting To Know Yeoman
+The following packages are always installed by the [app](#app) generator:
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
+* Bootstrap
+* QUnit
+* JQuery
 
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+## Testing
 
+Running `grunt test` will open the QUnit test page.
 
 ## License
 
