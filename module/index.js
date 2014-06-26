@@ -9,16 +9,24 @@ var ModuleGenerator = yeoman.generators.NamedBase.extend({
     },
 
     files: function() {
-        this.copy('_module.js', 'app/scripts/modules/' + this.name + '.js');
+        this.classname = this.name.replace(/[^a-zA-Z0-9]/g, "")
+        this.copy('_module.js', 'app/scripts/modules/' + this.classname + '.js');
 
-        var hook = '<script src="scripts/main.js"></script>',
+        var hook = '<!-- End VanillaJS Modules -->',
             path = 'app/index.html',
             file = this.readFileAsString(path),
-            slug = this.name.toLowerCase().replace(/ /g, '_'),
-            insert = '<script src="scripts/modules/' + this.name + '.js"></script>';
+            insert = '<script src="scripts/modules/' + this.classname + '.js"></script>';
 
         if (file.indexOf(insert) === -1) {
             this.write(path, file.replace(hook, insert + '\n\t\t' + hook));
+        }
+
+        path = 'tests/index.html',
+        file = this.readFileAsString(path),
+        insert = '<script src="scripts/modules/' + this.classname + '.js"></script>';
+
+        if (file.indexOf(insert) === -1) {
+            this.write(path, file.replace(hook, insert + '\n\t' + hook));
         }
 
 

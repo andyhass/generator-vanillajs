@@ -25,20 +25,23 @@ var VanillajsGenerator = yeoman.generators.Base.extend({
         // Have Yeoman greet the user.
         this.log(yosay('Yo VanillaJS - let\'s kick it!'));
 
-        var prompts = [{
+        var prompts = [
+            /*{
             type: 'confirm',
             name: 'compassBootstrap',
             message: 'Alright stop - and collaborate with Bootstrap for SASS?',
             default: true
-        }, {
-            name: 'appName',
-            message: 'What\'s the name of this new invention',
-        }, {
-            type: 'list',
-            name: 'willItEverStop',
-            message: 'Will it ever stop?',
-            choices: ["Yes", "No", "Yo, I don't know"]
-        }];
+        },*/
+            {
+                name: 'appName',
+                message: 'What\'s the name of this new invention',
+            }, {
+                type: 'list',
+                name: 'willItEverStop',
+                message: 'Will it ever stop?',
+                choices: ["Yes", "No", "Yo, I don't know"]
+            }
+        ];
 
         this.prompt(prompts, function(props) {
             this.appName = props.appName;
@@ -61,6 +64,11 @@ var VanillajsGenerator = yeoman.generators.Base.extend({
         this.template('common/index.html', 'app/index.html');
         this.copy('common/scripts/main.js', 'app/scripts/main.js');
         this.copy('common/styles/main.css', 'app/styles/main.css');
+
+        this.mkdir('tests');
+        this.template('tests/index.html', 'tests/index.html');
+        this.template('tests/test.js', 'tests/test.js');
+        this.directory('tests/lib', 'tests/lib');
     },
 
     projectfiles: function() {

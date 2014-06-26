@@ -10,8 +10,7 @@
                 "sass-bootstrap": "~3.0.0",
             <%
         } %>
-            "jquery": "~1.9.0",
-        "qunit": "~1.11.0"
+            "jquery": "~1.9.0"
     },
     "devDependencies": {}
 }

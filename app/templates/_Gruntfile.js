@@ -38,8 +38,16 @@ module.exports = function(grunt) {
                         '<%= yeoman.app %>'
                     ]
                 }
+            },
+            test: {
+                options: {
+                    open: true,
+                    base: [
+                        'tests',
+                        '<%= yeoman.app %>'
+                    ]
+                }
             }
-
         },
         open: {
             server: {
@@ -51,6 +59,13 @@ module.exports = function(grunt) {
     grunt.registerTask('server', function(target) {
         grunt.task.run([
             'connect:livereload',
+            'watch'
+        ]);
+    });
+
+    grunt.registerTask('test', function(target) {
+        grunt.task.run([
+            'connect:test',
             'watch'
         ]);
     });

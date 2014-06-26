@@ -1,4 +1,4 @@
-var <%= name %> = (function() {
+var <%= classname %> = (function() {
 
     return {
 
