@@ -20,7 +20,15 @@
         "app"
     ],
     "keywords": [
-        "yeoman-generator"
+        "yeoman-generator",
+        "javascript",
+        "plain",
+        "vanilla",
+        "plain javascript",
+        "vanilla javascript",
+        "simple",
+        "front-end",
+        "app"
     ],
     "dependencies": {
         "yeoman-generator": "~0.16.0",
