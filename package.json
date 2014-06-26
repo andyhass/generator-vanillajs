@@ -1,6 +1,6 @@
 {
     "name": "generator-vanillajs",
-    "version": "0.1.12",
+    "version": "0.1.13",
     "description": "A yeoman generator for an old school, vanilla javascript web app. Word to your mother.",
     "license": "MIT",
     "main": "app/index.js",

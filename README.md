@@ -1,6 +1,8 @@
 # generator-vanillajs [![Build Status](https://secure.travis-ci.org/stylinandy/generator-vanillajs.png?branch=master)](https://travis-ci.org/stylinandy/generator-vanillajs)
 
-> [Yeoman](http://yeoman.io) generator for a plain, vanilla JavaScript app.
+> A [Yeoman](http://yeoman.io) for an old school javascript web app. Word to your mother.
+
+No AMD.  No frameworks.  Just simple Javascript.
 
 ## Usage
 
