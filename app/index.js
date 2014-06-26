@@ -56,7 +56,7 @@ var VanillajsGenerator = yeoman.generators.Base.extend({
         this.mkdir('app/scripts');
 
         this.template('_package.json', 'package.json');
-        this.copy('.gitignore', '.gitignore');
+        this.copy('.npmignore', '.gitignore');
         this.copy('.bowerrc', '.bowerrc');
         this.copy('_bower.json', 'bower.json');
         this.copy('_Gruntfile.js', 'Gruntfile.js');
